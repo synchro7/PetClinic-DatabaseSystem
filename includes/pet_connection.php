@@ -11,7 +11,7 @@
 		}
 	};
 
-	class EmployeeConnection extends dbConn {
+	class PetConnection extends dbConn {
 		public function updateEmployee($imageLink, $id) {
 			include 'includes/config.php';
 			try {
@@ -52,12 +52,12 @@
 			$success = ($err == '') ? 'true' : $error;
 			return $success;
 		}
-		public function getEmployees() {
+		public function getPets() {
 			include 'includes/config.php';
 			try {
 				$db = new dbConn;
 				$err = '';
-				$stmt = $db->conn->prepare("SELECT * FROM employee");
+				$stmt = $db->conn->prepare("SELECT * FROM PET");
 				$stmt->execute();
 
 				// Gets query result
@@ -70,13 +70,13 @@
 
 			return $success;
 		}
-		public function getEmployee($ssn) {
+		public function getPet($petid) {
 			include 'includes/config.php';
 			try {
 				$db = new dbConn;
 				$err = '';
-				$stmt = $db->conn->prepare("SELECT * FROM employee where SSN = :ssn"  );
-				$stmt->bindParam(':ssn', $ssn);
+				$stmt = $db->conn->prepare("SELECT * FROM PET where PET_ID = :petid"  );
+				$stmt->bindParam(':petid', $petid);
 				$stmt->execute();
 
 				// Gets query result

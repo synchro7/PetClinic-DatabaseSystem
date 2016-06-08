@@ -1,0 +1,8 @@
+USE PETCLINIC;
+
+INSERT INTO OWNER
+VALUES ('100001', 'Allen', 'Walker', 'GB', '001-000-111','M');
+
+INSERT INTO PET
+VALUES ('2000001', '100001', 'Puck', null, 'Dog','F');
+
