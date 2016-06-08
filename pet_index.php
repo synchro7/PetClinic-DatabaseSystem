@@ -28,13 +28,13 @@
 					echo "<td>".$result['BREED']."</td>";
 					echo "<td>".$result['SEX']."</td>";
 					echo "<td>".$result['DATE_OF_BIRTH']."</td>";
-					echo "<td>".$result['OWNER_ID']."</td>";
+//					echo "<td>".$result['OWNER_ID']."</td>";
 //					echo "<td>";
 //					echo $a->getEmployee($result['SUPER_SSN'])["FNAME"];
 //					echo "</td>";
-//					echo "<td>";
-//					echo $a->getDepartment($result['DNO'])["DNAME"];
-//					echo "</td>";
+					echo "<td>";
+					echo $a->getOwner($result['OWNER_ID'])["F_NAME"];
+					echo "</td>";
 					echo "</tr>";
 				}
 				echo "</table>";

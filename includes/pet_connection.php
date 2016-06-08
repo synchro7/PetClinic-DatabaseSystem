@@ -89,13 +89,13 @@
 
 			return $success;
 		}
-		public function getDepartment($dno) {
+		public function getOwner($ownerid) {
 			include 'includes/config.php';
 			try {
 				$db = new dbConn;
 				$err = '';
-				$stmt = $db->conn->prepare("SELECT * FROM department where dnumber = :dnumber"  );
-				$stmt->bindParam(':dnumber', $dno);
+				$stmt = $db->conn->prepare("SELECT * FROM OWNER where OWNER_ID = :ownerid"  );
+				$stmt->bindParam(':ownerid', $ownerid);
 				$stmt->execute();
 
 				// Gets query result
