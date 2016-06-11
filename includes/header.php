@@ -14,7 +14,7 @@
 
 </head>
 
-<body style="padding-top: 70px;">
+<body style="padding:70px 10px 0px 10px;">
 	<nav class="navbar navbar-default navbar-fixed-top">
 		<div class="container">
 			<!-- Brand and toggle get grouped for better mobile display -->
