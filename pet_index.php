@@ -8,7 +8,7 @@
 <div class="container">
 	<div class="row">
 		<div class="page-header" style="margin: 0px;">
-		  <h1>Pet <small>Add / Remove the employee</small></h1>
+		  <h1>Pet <small>Database Manager</small></h1>
 		</div>
 	</div>
 	</br>
@@ -18,8 +18,8 @@
 		<?php
 		if (is_array($pet) || is_object($pet))
 			{
-				echo "<table class='table table-bordered'>";
-				echo "<tr><th>Pet ID</th><th>Name</th><th>Breed</th><th>Sex</th><th>Date of Birth</th><th>Owner</th></tr>";
+				echo "<table class='table table-bordered table-hover'>";
+				echo "<thead><tr><th>Pet ID</th><th>Name</th><th>Breed</th><th>Sex</th><th>Date of Birth</th><th>Owner</th></tr></thead>";
 				foreach ($pet as $result) {
 //					echo "<tr typeid='".$result['SSN']."'><td><a href='employee_show.php?ssn=".$result['SSN']."'>".$result['SSN']."</a></td>";
 					echo "<tr>";
