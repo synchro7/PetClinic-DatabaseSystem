@@ -7,7 +7,7 @@ VALUES
 
 INSERT INTO PET
 VALUES 
-('2000001', '100001', 'Puck', null, 'Faerie Dragon','F'),
-('2000002', '100002', 'Scar', 1994-06-15, 'Lion','M');
+('2000001', '100001', 'Puck', '1994-06-15', 'Faerie Dragon','F'),
+('2000002', '100002', 'Scar', '1994-06-15', 'Lion','M');
 
 
