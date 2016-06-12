@@ -22,8 +22,7 @@
 				echo "<thead><tr><th>Pet ID</th><th>Name</th><th>Breed</th><th>Sex</th><th>Date of Birth</th><th>Owner</th></tr></thead>";
 				foreach ($pet as $result) {
 //					echo "<tr typeid='".$result['SSN']."'><td><a href='employee_show.php?ssn=".$result['SSN']."'>".$result['SSN']."</a></td>";
-					echo "<tr>";
-					echo "<td>".$result['PET_ID']."</td>";
+					echo "<tr typeid='".$result['PET_ID']."'><td><a href='pet_show.php?id=".$result['PET_ID']."'>".$result['PET_ID']."</a></td>";
 					echo "<td>".$result['PET_NAME']."</td>";
 					echo "<td>".$result['BREED']."</td>";
 					echo "<td>".$result['SEX']."</td>";
