@@ -1,3 +1,13 @@
-<?php include ('includes/header.php'); ?>
-<center><img src="images/logo.png" class="img-responsive"></center>
-<?php include ('includes/footer.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="refresh" content="0;url=pages/index.html">
+<title>Pet Clinic</title>
+<script language="javascript">
+	window.location.href = "pages/index.php"
+</script>
+</head>
+<body>
+Go to <a href="pages/index.php">/pages/index.php</a>
+</body>
+</html>
