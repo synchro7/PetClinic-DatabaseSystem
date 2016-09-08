@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-class Pet extends CI_Controller {
+class Owner extends CI_Controller {
 
 		public function __construct()
 		{
@@ -13,13 +13,13 @@ class Pet extends CI_Controller {
 
 		public function index()
 		{
-			$data['pet'] = $this->pet_model->get_pets();
-			$data['num_rows'] = $this->pet_model->count_rows();
+			$data['owners'] = $this->owner_model->get_owners();
+			$data['num_rows'] = $this->owner_model->count_rows();
 			$this->load->view('templates/header');
 			$this->load->view('includes/datatable-header');
 			$this->load->view('templates/body-start');
 			$this->load->view('includes/menubar');
-			$this->load->view('pet/home', $data);
+			$this->load->view('owner/home', $data);
 			$this->load->view('templates/body-end');
 			$this->load->view('includes/datatable-footer');
 			$this->load->view('templates/footer');
@@ -30,15 +30,17 @@ class Pet extends CI_Controller {
 			if(empty($id)){
 				show_404();
 			} else {
-				$data['pet'] = $this->pet_model->get_pet($id);
-				$data['owner2'] = $this->owner_model->get_owner($data['pet']['OWNER_ID']);
+				$data['owner'] = $this->owner_model->get_owner($id);
+				$data['pets'] = $this->pet_model->get_pets_by_owner($id);
 				$this->load->view('templates/header');
+				$this->load->view('includes/datatable-header');
 				$this->load->view('includes/datepicker-header');
 				$this->load->view('templates/body-start');
 				$this->load->view('includes/menubar');
-				$this->load->view('pet/view', $data);
+				$this->load->view('owner/view', $data);
 				$this->load->view('templates/body-end');
-				$this->load->view('pet/view-b-inc');
+				$this->load->view('owner/view-b-inc');
+				$this->load->view('includes/datatable-footer');
 				$this->load->view('templates/footer');
 			}
 		}
@@ -48,15 +50,14 @@ class Pet extends CI_Controller {
 
 			if(empty($action)) {
 				$this->load->view('templates/header');
-				$this->load->view('includes/datepicker-header');
 				$this->load->view('templates/body-start');
 				$this->load->view('includes/menubar');
-				$this->load->view('pet/create');
+				$this->load->view('owner/create');
 				$this->load->view('templates/body-end');
-				$this->load->view('pet/create-b-inc');
+				$this->load->view('owner/create-b-inc');
 				$this->load->view('templates/footer');
 			} elseif($action == 'submit') {
-				$data = $this->pet_model->add_pet();
+				$data = $this->owner_model->add_owner();
 				echo json_encode($data);
 			} else {
 				show_404();
@@ -69,20 +70,18 @@ class Pet extends CI_Controller {
 
 				if(empty($action)) {
 					show_404();
-				} elseif ($action == 'getpets') {
-					$data = $this->pet_model->get_pets();
+				} elseif ($action == 'getowner') {
+					$data['owner'] = $this->owner_model->get_owner($id);
+					$data['id'] = $id;
 					echo json_encode($data);
-				} elseif ($action == 'getpet') {
-					$data = $this->pet_model->get_pet($id);
+				} elseif ($action == 'getowners') {
+					$data['owners'] = $this->owner_model->get_owners();
 					echo json_encode($data);
-				} elseif ($action == 'getnumrows') {
-					$data['num_rows'] = $this->pet_model->count_rows();
+				} elseif ($action == 'delowner') {
+					$data = $this->owner_model->del_owner($id);
 					echo json_encode($data);
 				} elseif ($action == 'update') {
-					$data = $this->pet_model->update_pet();
-					echo json_encode($data);
-				} elseif ($action == 'delpet') {
-					$data = $this->pet_model->del_pet($id);
+					$data = $this->owner_model->update_owner();
 					echo json_encode($data);
 				} else {
 					show_404();
